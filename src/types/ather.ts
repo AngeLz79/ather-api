@@ -1,6 +1,8 @@
 import { AxiosRequestConfig } from "axios";
 import { EventEmitter } from "events";
 import { ClientRequestArgs } from "http";
+import { createArchive } from "src/archive";
+import { createAther1 } from "src/ather1";
 import * as WebSocket from "ws";
 
 type ws_config = {
@@ -155,9 +157,11 @@ interface IAtherSocketClient extends EventEmitter {
     handleMessage(data: MessageEvent): void;
     login(token: string, type: "token"|"access_key"|null): Promise<void>;
     _ready: boolean;
+    archive: ReturnType<typeof createArchive>;
+    ather1: ReturnType<typeof createAther1>;
 }
 
-export type HttpRequestFunction = (query: string, type: "GET" | "POST") => Promise<{ data: unknown }>;
+export type HttpRequestFunction = (query: string, type: "GET" | "POST") => Promise<{ data: unknown, status: "success" | "error" }>;
 
 type AtherSocketResponse = {
     status: string;

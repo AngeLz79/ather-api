@@ -11,7 +11,7 @@ export default (httpRequest: HttpRequestFunction, websocket: AtherWebSocket) => 
         get: async (id: string): Promise<Response> => {
             const url = `users/get/${id}`;
             const response = await httpRequest(url, "GET");
-            return response.data as Response;
+            return response as Response;
         }
     };
 };

@@ -14,8 +14,13 @@ atherClient.login("hpoZWXPi7N3uEfZN8gF3a")
 
 atherClient.on('ready', async ()=>{
     const user = await atherClient.ather1.users.get('675227360965951498')
-    if (user.permissions.admin) {
-        console.log('user is admin')
+    if (user.data.permissions.admin) {
+        try {
+            const pulled = await atherClient.archive.users.get('675227360965951498')
+            console.log(pulled)
+        } catch (e) {
+            console.log(e)
+        }
     }
 })
 

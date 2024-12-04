@@ -31,14 +31,8 @@ exports.default = (websocket, httpRequest) => {
             });
         }),
         get: (id_1, ...args_1) => __awaiter(void 0, [id_1, ...args_1], void 0, function* (id, nocache = false) {
-            const url = `atherArchive/get/user?id=${id}&nocache=${nocache}`;
-            const response = yield websocket.send({
-                type: "atherArchive",
-                archiveType: "users",
-                action: "get",
-                id,
-                nocache,
-            });
+            const url = `atherArchive/get/user/${id}?nocache=${nocache}`;
+            const response = yield httpRequest(url, "GET");
             if (response.status === "success" && response.data) {
                 return response.data;
             }

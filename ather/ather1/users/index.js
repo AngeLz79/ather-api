@@ -14,7 +14,7 @@ exports.default = (httpRequest, websocket) => {
         get: (id) => __awaiter(void 0, void 0, void 0, function* () {
             const url = `users/get/${id}`;
             const response = yield httpRequest(url, "GET");
-            return response.data;
+            return response;
         })
     };
 };

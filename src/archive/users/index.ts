@@ -25,14 +25,8 @@ export default (websocket: AtherWebSocket, httpRequest: HttpRequestFunction) => 
         },
 
         get: async (id: string, nocache = false): Promise<User> => {
-            const url = `atherArchive/get/user?id=${id}&nocache=${nocache}`;
-            const response = await websocket.send({
-                type: "atherArchive",
-                archiveType: "users",
-                action: "get",
-                id,
-                nocache,
-            });
+            const url = `atherArchive/get/user/${id}?nocache=${nocache}`;
+            const response = await httpRequest(url, "GET");
 
             if (response.status === "success" && response.data) {
                 return response.data as User;
