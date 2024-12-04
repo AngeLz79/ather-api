@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                         // ES6 as the target
+    "module": "commonjs",                    // Use CommonJS for Node.js
+    "strict": true,                          // Enable strict type-checking options
+    "esModuleInterop": true,                 // Enable compatibility with ES Modules
+    "skipLibCheck": true,                    // Skip type-checking of declaration files
+    "outDir": "./ather",                     // Output directory for compiled JS files
+    "rootDir": "./src",                      // Root directory for TypeScript files
+    "declaration": true,                     // Generate declaration files (.d.ts)
+    "declarationDir": "./ather",             // Output directory for declaration files
+    "baseUrl": ".",                          // Set base directory for path resolution
+    // "paths": {
+    //   "@/*": ["./src/*"]                     // Map `@/` to the `src/` folder
+    // }
+  },
+  "include": [
+    "src/**/*"                               // Include all TypeScript files under `src/`
+  ],
+  "exclude": [
+    "node_modules"                           // Exclude `node_modules`
+  ]
+}
